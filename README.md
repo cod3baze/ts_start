@@ -4,6 +4,8 @@
 
 O TypeScript suporta uma extensão da linguagem JavaScript, que oferece lugares para você dizer ao TypeScript quais devem ser os tipos.
 
+- inferindo tipo: `const varname: TypeName = valueData`
+
 Por exemplo, para criar um objeto com um **tipo inferido** que inclui `name: string` e `id: number`, você pode escrever:
 
 ```js
@@ -145,4 +147,44 @@ const object = backpack.get();
 
 // Since the backpack variable is a string, you can't pass a number to the add function.
 backpack.add(23); // error
+```
+
+- tipos básico
+
+TypeScript, como JavaScript, permite que você trabalhe com matrizes de valores. Os tipos de array podem ser escritos de duas maneiras. No primeiro, você usa o tipo dos elementos seguido por [] para denotar uma matriz desse tipo de elemento:
+
+```ts
+let list: number[] = [1, 2, 3];
+```
+
+A segunda maneira usa um tipo de array genérico, `Array<elemType>`:
+
+```ts
+let list: Array<number> = [1, 2, 3];
+```
+
+- Tuplas
+
+Os tipos de tupla permitem expressar um array com um número fixo de elementos cujos tipos são conhecidos, mas não precisam ser os mesmos. Por exemplo, você pode querer representar um valor como um par de uma string e um número:
+
+```ts
+// Declare a tuple type
+let x: [string, number];
+// Initialize it
+x = ["hello", 10]; // OK
+// Initialize it incorrectly
+x = [10, "hello"]; // Error
+```
+
+- Enum
+
+Uma adição útil ao conjunto padrão de tipos de dados do JavaScript é o enum. Como em linguagens como C #, um enum é uma forma de dar nomes mais amigáveis ​​a conjuntos de valores numéricos.
+
+```ts
+enum Color {
+  Red,
+  Green,
+  Blue,
+}
+let c: Color = Color.Green;
 ```
